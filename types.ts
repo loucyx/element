@@ -57,10 +57,16 @@ export type AriaAttribute =
   | "valuetext";
 
 /**
+ * Possible aria attribute types.
+ * `null` and `undefined` clear the attribute.
+ */
+export type AriaValue = bigint | boolean | number | string | null | undefined;
+
+/**
  * Object to set aria labels.
  */
-export type AriaLabels = Readonly<Record<string, string>> &
-  Partial<Readonly<Record<AriaAttribute, string>>>;
+export type AriaLabels = Readonly<Record<string, AriaValue>> &
+  Partial<Readonly<Record<AriaAttribute, AriaValue>>>;
 
 /**
  * Type of tag used to create custom elements.
